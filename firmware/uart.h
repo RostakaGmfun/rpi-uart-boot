@@ -1,5 +1,5 @@
 /*
- * Raspberry Pi MiniUART driver code, 
+ * Raspberry Pi UART driver code, 
  * taken from http://wiki.osdev.org/Raspberry_Pi_Bare_Bones
  */
 
