@@ -24,10 +24,8 @@ void main(uint32_t r0, uint32_t r1, uint32_t atags) {
 	uart_puts("rpi-uart-boot initialised successfully!\r\n");
     uart_puts("waiting for image on UART0\r\n");
     
-   loader_main();
-
-	while ( true )
-		uart_putc(uart_getc());
+    while(1) 
+        loader_main();
 }
     
 __attribute__((section(".text.relocate"))) void relocate() {

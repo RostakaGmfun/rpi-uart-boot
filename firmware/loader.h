@@ -24,11 +24,10 @@ enum {
 typedef struct {
     uint8_t magic; /* = DATA_HDR_MAGIC */
     uint8_t packet_size;
-    uint8_t checksum;
 } packet_hdr_t;
 
 uint8_t bsd_checksum(const uint8_t *data, size_t size);
-void handle_packet(packet_hdr_t *packet_hdr);
+int32_t handle_packet(packet_hdr_t *packet_hdr);
 void loader_main();
 
 #endif /* LOADER_H */
