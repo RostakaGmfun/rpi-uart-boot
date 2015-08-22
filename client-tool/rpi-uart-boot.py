@@ -3,7 +3,6 @@
 import sys
 import os.path
 import serial
-import     
 INIT_SYN = 0x6D
 INIT_ACK = 0x65
 DATA_HDR_MAGIC = 0xEA
