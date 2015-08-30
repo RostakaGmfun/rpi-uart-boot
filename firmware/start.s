@@ -1,7 +1,7 @@
 .section .text.relocate
 .global _relocate
 _relocate:
-    mov sp, #0x8000
+    mov sp, #0x2000
     bl relocate
 
 .section .text.boot

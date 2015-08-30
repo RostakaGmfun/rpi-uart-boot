@@ -13,7 +13,7 @@ extern void printf(const char *fmt, ...);
 
 typedef void (*kentry_t)(void);
 
-#define RAM_END (uint8_t*)0xF2000 /* Should be sufficient space */
+#define RAM_START (uint8_t*)0x2000 /* Should be sufficient space */
 
 void main(uint32_t r0, uint32_t r1, uint32_t atags) {
 	(void) r0;
@@ -31,10 +31,10 @@ void main(uint32_t r0, uint32_t r1, uint32_t atags) {
 __attribute__((section(".text.relocate"))) void relocate() {
 	    uart_init();
         uart_puts("rpi-uart-boot: copiyng itself to higher address\r\n");
-        printf("RAM_END %X\r\n", RAM_END);
+        printf("RAM_START %X\r\n", RAM_START);
         
         size_t kernel_size = &__end - &__start;
-        uint8_t *new_addr = RAM_END - kernel_size;
+        uint8_t *new_addr = RAM_START ;
         printf("new_addr %X\r\nkernel_size %d=%X\r\n", new_addr, kernel_size, kernel_size);
         printf("=%X %X, =%X %X\r\n",&__start, *(&__start), new_addr, *new_addr);
         memcpy(new_addr, &__start, kernel_size);
